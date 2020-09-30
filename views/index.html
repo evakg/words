@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fav words</title>
+    <link rel="stylesheet" href="https://use.typekit.net/nwa0spc.css">
+		<script>
+      
+      var append = function(text, id) {
+        document.getElementById(id).insertAdjacentHTML("beforeend",text);
+      };
+
+      var spreadsheet_id = "1Lk70liTax1t66wl2XbA05tfwyBgsOVkSunKPl2idGsE";
+      
+      var data_url = "/data?id=" + spreadsheet_id;      
+      var request = new XMLHttpRequest();
+      request.addEventListener("load", function(){
+      
+        var response = JSON.parse(this.response); //this will take a long time to explain
+        
+        // console.log(response);                
+        
+        for (var i = 0; i<response.length; i++) {
+          console.log(response[i]);
+          append("<p>" + response[i].name + "</p>", "favwords");
+          
+        }
+        
+        
+
+        // for(var i = 0; i<response.length; i++) {
+        //   append("<li>"+ response[i].example +"</li>", "favThings");
+        // }
+        
+      });
+      request.open("GET", data_url);
+      request.send();
+      
+		</script>
+		<style>
+      button, name, input, form{
+font-style: normal!important;
+        font-size: .75em!important;
+
+      }
+      body{background-color: white;
+      margin: 1.5em!important;
+     font-family: quasimoda;
+      }
+      h1{ font-family: quasimoda, sans-serif;
+font-weight: 900;
+font-style: normal;
+      margin:0;}
+      h2{font-family: quasimoda, sans-serif;
+font-weight: 500;
+font-style: italic;
+      }
+      ul,p{
+      margin:0;
+      }
+      #normal{
+      font-style:normal;}
+      #input{
+      outline: none;
+      }
+      #submit-form{
+      display:none;}
+      ul{
+      padding-left:0;
+      }
+		</style>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+	</head>
+	<body>
+    
+  </body>
+  
+    <h2 id="subtitle"><span></span>
+      
+      <script>    var textToShow = ['dawdle, codswallop, curmudgeon ', 
+                                    'malarkey, bucolic, lilt', 
+                                    'woebegone, cattywompus, petrichor', 
+                                    'succulent, bogus, elixir',
+                                    'befuddle, effervescent, wherewithal',]
+    $(document).ready(function() {
+        $('span').html(textToShow[Math.floor(Math.random()*textToShow.length)]);
+    });</script>       
+
+    <h1>
+      your favs:
+      </h1>
+    
+   <h2>
+     
+      <ul id="favwords"> </ul></h2> 
+    
+   <h2>
+     
+       <script>
+      var $form = $('form#words'),
+    url = 'https://script.google.com/macros/s/AKfycbw-IgVz-8njpi8A0mpaSmcVu5Dz2zYvAaUxNYqEfzTXK9RE0itY/exec'
+
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})</script>
+    <div>
+      <form id="words">
+        
+        </form>
+
+
+
+  <div>
+    <button type="submit" id="submit-form">Submit</button>
+  </div>        
+
+         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   <!-- Style The Contact Form How Ever You Prefer -->
+   <link rel="stylesheet" href="style.css">
+
+  <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+  action="https://script.google.com/macros/s/AKfycbwTHkh_l9DFsEozYVd7sAi7p735wxwJof1dif1zI5mHeHfEu0q9/exec">
+    <!-- change the form action to your script url -->
+
+    <div class="form-elements">
+      <fieldset class="pure-group">
+        <label for="name"> </label>
+        <input id="name" name="name" placeholder="Add a word!" />
+      </fieldset>
+<fieldset class="pure-group"> 
+<label for="person"> </label>
+<input id="person" name="person" placeholder="your name"/>
+</fieldset>
+
+
+      <button class="button-success pure-button button-xlarge">
+        <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+    </div>
+
+    <!-- Customise the Thankyou Message People See when they submit the form: -->
+    <div class="thankyou_message" style="display:none;">
+      <h2><em>refresh to see</em>
+     
+      <ul id="favwords"> </ul>
+      </h2>
+      <script>
+      var $form = $('form#words'),
+    url = 'https://script.google.com/macros/s/AKfycbw-IgVz-8njpi8A0mpaSmcVu5Dz2zYvAaUxNYqEfzTXK9RE0itY/exec'
+
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})</script>
+    
+    
+   
+    </div>
+
+  </form>
+
+  <!-- Submit the Form to Google Using "AJAX" -->
+  <script data-cfasync="false" src="form-submission-handler.js"></script>
+      <script>(function() {
+  function validEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+  }
+
+  function validateHuman(honeypot) {
+    if (honeypot) {  //if hidden form filled up
+      console.log("Robot Detected!");
+      return true;
+    } else {
+      console.log("Welcome Human!");
+    }
+  }
+
+  // get all data in form and return object
+  function getFormData(form) {
+    var elements = form.elements;
+
+    var fields = Object.keys(elements).filter(function(k) {
+          return (elements[k].name !== "honeypot");
+    }).map(function(k) {
+      if(elements[k].name !== undefined) {
+        return elements[k].name;
+      // special case for Edge's html collection
+      }else if(elements[k].length > 0){
+        return elements[k].item(0).name;
+      }
+    }).filter(function(item, pos, self) {
+      return self.indexOf(item) == pos && item;
+    });
+
+    var formData = {};
+    fields.forEach(function(name){
+      var element = elements[name];
+      
+      // singular form elements just have one value
+      formData[name] = element.value;
+
+      // when our element has multiple items, get their values
+      if (element.length) {
+        var data = [];
+        for (var i = 0; i < element.length; i++) {
+          var item = element.item(i);
+          if (item.checked || item.selected) {
+            data.push(item.value);
+          }
+        }
+        formData[name] = data.join(', ');
+      }
+    });
+
+    // add form-specific values into the data
+    formData.formDataNameOrder = JSON.stringify(fields);
+    formData.formGoogleSheetName = form.dataset.sheet || "responses"; // default sheet name
+    formData.formGoogleSendEmail = form.dataset.email || ""; // no email by default
+
+    console.log(formData);
+    return formData;
+  }
+
+  function handleFormSubmit(event) {  // handles form submit without any jquery
+    event.preventDefault();           // we are submitting via xhr below
+    var form = event.target;
+    var data = getFormData(form);         // get the values submitted in the form
+
+    /* OPTION: Remove this comment to enable SPAM prevention, see README.md
+    if (validateHuman(data.honeypot)) {  //if form is filled, form will not be submitted
+      return false;
+    }
+    */
+
+    if( data.email && !validEmail(data.email) ) {   // if email is not valid show error
+      var invalidEmail = form.querySelector(".email-invalid");
+      if (invalidEmail) {
+        invalidEmail.style.display = "block";
+        return false;
+      }
+    } else {
+      disableAllButtons(form);
+      var url = form.action;
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', url);
+      // xhr.withCredentials = true;
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onreadystatechange = function() {
+          console.log(xhr.status, xhr.statusText);
+          console.log(xhr.responseText);
+          form.reset();
+          var formElements = form.querySelector(".form-elements")
+          if (formElements) {
+            formElements.style.display = "none"; // hide form
+          }
+          var thankYouMessage = form.querySelector(".thankyou_message");
+          if (thankYouMessage) {
+            thankYouMessage.style.display = "block";
+          }
+          return;
+      };
+      // url encode form data for sending as post data
+      var encoded = Object.keys(data).map(function(k) {
+          return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      }).join('&');
+      xhr.send(encoded);
+    }
+  }
+  
+  function loaded() {
+    console.log("Contact form submission handler loaded successfully.");
+    // bind to the submit event of our form
+    var forms = document.querySelectorAll("form.gform");
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener("submit", handleFormSubmit, false);
+    }
+  };
+  document.addEventListener("DOMContentLoaded", loaded, false);
+
+  function disableAllButtons(form) {
+    var buttons = form.querySelectorAll("button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    }
+  }
+})();</script>
+     
+	</body>
+</html>
